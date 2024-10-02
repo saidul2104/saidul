@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shuvo's Personal Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             box-sizing: border-box;
@@ -26,13 +27,19 @@
             color: white;
             padding: 60px 20px;
             text-align: center;
+            animation: slideDown 0.8s ease forwards;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         header h1 {
             font-size: 3em;
             font-weight: 700;
             margin-bottom: 10px;
-            animation: fadeIn 2s ease-in-out;
+            animation: fadeIn 1s ease-in-out;
         }
 
         @keyframes fadeIn {
@@ -43,6 +50,12 @@
         header p {
             font-size: 1.3em;
             color: #f7f8fc;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        header p:hover {
+            transform: scale(1.05);
         }
 
         .container {
@@ -60,6 +73,12 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: popIn 0.5s ease forwards;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         .left-content:hover, .right-content:hover {
@@ -90,13 +109,13 @@
             transition: transform 0.5s, box-shadow 0.5s;
         }
 
-        h2 {
-            color: #2c3e50;
-            font-size: 2em;
-            margin-bottom: 20px;
-            font-weight: 700;
-            position: relative;
+        .profile-pic:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
+
+       
+       
 
         p, ul {
             margin-bottom: 20px;
@@ -109,6 +128,11 @@
         ul li {
             margin-bottom: 10px;
             font-size: 1.1em;
+            transition: transform 0.3s ease;
+        }
+
+        ul li:hover {
+            transform: translateX(10px); /* Slide effect on hover */
         }
 
         .social-icons {
@@ -120,12 +144,12 @@
         .social-icons a {
             text-decoration: none;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #333; /* Default color */
         }
 
-        .social-icons img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        .social-icons a:hover {
+            transform: scale(1.2);
+            color: #3498db; /* Change color on hover */
         }
 
         footer {
@@ -148,8 +172,12 @@
             color: white;
             text-decoration: none;
             margin: 0 15px;
-            font-size: 1.2em;
+            font-size: 1.5em; /* Adjust icon size */
             transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #2980b9; /* Change color on hover */
         }
 
         button {
@@ -166,6 +194,7 @@
         button:hover {
             background-color: #2980b9;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05); /* Slightly scale on hover */
         }
 
         /* Responsive Design */
@@ -205,48 +234,87 @@
                 font-size: 16px;
             }
         }
+
+        .interests-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start */
+}
+
+.interest-item {
+    font-size: 1.5em;
+    margin: 10px 0;
+    padding: 10px 20px;
+    border-radius: 8px;
+    animation: slideIn 0.5s ease forwards;
+    background: linear-gradient(45deg, #3357ff, #ff33a8);
+    background-size: 400% 400%;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    /* Set initial transform for animation */
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+/* Add delay to each item */
+.interest-item:nth-child(1) { animation-delay: 0s; }
+.interest-item:nth-child(2) { animation-delay: 0.1s; }
+.interest-item:nth-child(3) { animation-delay: 0.2s; }
+.interest-item:nth-child(4) { animation-delay: 0.5s; }
+
+@keyframes slideIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.interest-item:hover {
+    transform: scale(1.05); /* Slightly increase size on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition for smooth effect */
+}
+
     </style>
 </head>
 <body>
     <div class="navbar">
         <a href="#">Home</a>
         <a href="#">Projects</a>
-        <a href="#">Contact</a>
+        <a href="https://www.facebook.com/shuvo2104" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/md-saidul2104/" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://twitter.com/your-twitter-handle" target="_blank">
+            <i class="fab fa-twitter"></i>
+        </a>
     </div>
 
     <header>
-        <h1>Saidul Islam Shuvo</h1>
+        <h1>Shuvo Islam</h1>
         <p>Computer Science & Engineering Student | Aspiring Developer</p>
         <button id="hireMeButton">Hire Me</button>
     </header>
 
     <div class="container">
         <div class="left-content">
-            <img src="/path-to-your-image.jpg" alt="Shuvo's Photo" class="profile-pic">
+            <img src="/home/md-saidul-islam-shuvo/Documents/IMG_2343.jpg" alt="Shuvo's Photo" class="profile-pic">
 
             <h2>About Me</h2>
             <p>Hello! My name is Shuvo. I am a Computer Science and Engineering student at Green University of Bangladesh. I enjoy exploring new technologies and improving my skills in programming.</p>
 
             <h2>Interests</h2>
-            <ul>
-               
-                <li>Web Development</li>
-                <li>Data Science</li>
-                <li>Writing and Blogging</li>
-            </ul>
+<ul class="interests-list">
+    
+    <li class="interest-item">Web Development</li>
+    <li class="interest-item">World Politics</li>
+    <li class="interest-item">Writing and Blogging</li>
+</ul>
 
-            <h2>Social Media</h2>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/shuvo2104">
-                    <img src="facebook-icon.png" alt="Facebook">
-                </a>
-                <a href="https://www.linkedin.com/in/md-saidul2104/">
-                    <img src="linkedin-icon.png" alt="LinkedIn">
-                </a>
-                <a href="https://twitter.com/your-twitter-handle">
-                    <img src="twitter-icon.png" alt="Twitter">
-                </a>
-            </div>
         </div>
 
         <div class="right-content" id="contactForm">
@@ -259,6 +327,7 @@
                 <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
+            
         </div>
     </div>
 
